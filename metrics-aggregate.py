@@ -77,7 +77,7 @@ def record_metrics_line(ms, name, metrics_fields):
 
     # re-calculate the average as the sum divided by the count. Don't just accumulate averages, as that will give you
     # a bogus, cumulative number
-    avg_value = sum_value // count_value
+    avg_value = sum_value // count_value if count_value > 0 else 0
 
     dt = datetime.datetime.fromtimestamp(ms / 1000)
     date = dt.strftime('%Y-%m-%d')
